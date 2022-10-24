@@ -6,31 +6,61 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name = "produto")
 public class Produto {
 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_produto")
 	private Long id;
-
+	
 	@Column(nullable = false)
 	private String nome;
-
+	
 	private String descricao;
-
-	@Column(name = "qtd_estoque", nullable = false)
-	private Integer qtdEstoque;
+	
+	@Column(nullable = false, name = "qtd_estoque")
+	private Integer quantidadeEstoque;
 	
 	@Column(name = "data_cadastro")
 	private Date dataCadastro;
 	
-	@Column(name = "valor_unitario", nullable = false)
-	private Float valorUnitario;
+	@Column(nullable = false, name = "valor_unitario")
+	private Double valorUnitario;
 	
 	private Byte imagem;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
+	@JsonBackReference
+	private Categoria categoria;
+	
+	@OneToOne(mappedBy = "produto")
+	private ItemPedido itemPedido;
+
+	public Byte getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(Byte imagem) {
+		this.imagem = imagem;
+	}
+
+	public ItemPedido getItemPedido() {
+		return itemPedido;
+	}
+
+	public void setItemPedido(ItemPedido itemPedido) {
+		this.itemPedido = itemPedido;
+	}
 
 	public Long getId() {
 		return id;
@@ -56,12 +86,12 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public Integer getQtdEstoque() {
-		return qtdEstoque;
+	public Integer getQuantidadeEstoque() {
+		return quantidadeEstoque;
 	}
 
-	public void setQtdEstoque(Integer qtdEstoque) {
-		this.qtdEstoque = qtdEstoque;
+	public void setQuantidadeEstoque(Integer quantidadeEstoque) {
+		this.quantidadeEstoque = quantidadeEstoque;
 	}
 
 	public Date getDataCadastro() {
@@ -72,24 +102,22 @@ public class Produto {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public Float getValorUnitario() {
+	public Double getValorUnitario() {
 		return valorUnitario;
 	}
 
-	public void setValorUnitario(Float valorUnitario) {
+	public void setValorUnitario(Double valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
 
-	public Byte getImagem() {
-		return imagem;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setImagem(Byte imagem) {
-		this.imagem = imagem;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	
-//	 ID_CATEGORIA CHAVE ESTRANGEIRA
-	
-	
+
 	
 }

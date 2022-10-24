@@ -1,10 +1,10 @@
-package br.com.serratec.eCommerce;
+package br.com.serratec;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ECommerceApplicationTests {
+class TesteProjetoFinalApplicationTests {
 
 	@Test
 	void contextLoads() {
