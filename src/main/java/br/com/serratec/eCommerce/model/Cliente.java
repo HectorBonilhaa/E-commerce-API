@@ -1,17 +1,22 @@
 package br.com.serratec.eCommerce.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name = "cliente")
 public class Cliente {
-	
+
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_cliente")
 	private Long id;
@@ -19,23 +24,38 @@ public class Cliente {
 	@Column(nullable = false)
 	private String email;
 	
-	@Column(name = "nome_usuario", nullable = false)
+	@Column(nullable = false, name = "nome_usuario")
 	private String nomeUsuario;
 	
-	@Column(name = "nome_completo", nullable = false)
+	@Column(nullable = false, name = "nome_completo")
 	private String nomeCompleto;
-	
 	
 	private String senha;
 	
 	@Column(nullable = false)
 	private String cpf;
 	
-	
 	private String telefone;
 	
 	@Column(name = "data_nascimento")
 	private Date dataNascimento;
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Endereco> enderecos;
+
+	
+	@OneToMany(mappedBy = "cliente")
+	@JsonBackReference
+	private List<Pedido> pedidos;
+	
+	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 
 	public Long getId() {
 		return id;
@@ -100,7 +120,15 @@ public class Cliente {
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
-//	ID_ENDEREÇO CHAVE ESTRANGEIRA
+
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+
+
 	
 }

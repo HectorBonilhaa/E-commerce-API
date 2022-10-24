@@ -5,10 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-@Table(name = "endereco")
 public class Endereco {
 
 	@Id
@@ -16,23 +18,28 @@ public class Endereco {
 	@Column(name = "id_endereco")
 	private Long id;
 
-	@Column( nullable= false)
+	@Column(nullable = false)
 	private String cep;
-	
-	@Column( nullable= false)
-	private String rua;
-	
-	@Column( nullable= false)
+
+	@Column(nullable = false)
+	private String logradouro;
+
+	@Column(nullable = false)
 	private String bairro;
-	
-	private String cidade;
-	
-	@Column( nullable= false)
-	private Integer numero;
-	
+
+	private String localidade;
+
+//	@Column(nullable = false)
+	private String numero;
+
 	private String complemento;
-	
-	private String estado;
+
+	private String uf;
+
+	@ManyToOne
+	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+	@JsonBackReference
+	private Cliente cliente;
 
 	public Long getId() {
 		return id;
@@ -50,12 +57,12 @@ public class Endereco {
 		this.cep = cep;
 	}
 
-	public String getRua() {
-		return rua;
+	public String getLogradouro() {
+		return logradouro;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 
 	public String getBairro() {
@@ -66,19 +73,19 @@ public class Endereco {
 		this.bairro = bairro;
 	}
 
-	public String getCidade() {
-		return cidade;
+	public String getLocalidade() {
+		return localidade;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setLocalidade(String localidade) {
+		this.localidade = localidade;
 	}
 
-	public Integer getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(Integer numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
@@ -90,14 +97,20 @@ public class Endereco {
 		this.complemento = complemento;
 	}
 
-	public String getEstado() {
-		return estado;
+	public String getUf() {
+		return uf;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setUf(String uf) {
+		this.uf = uf;
 	}
-	
-	
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 }
-
