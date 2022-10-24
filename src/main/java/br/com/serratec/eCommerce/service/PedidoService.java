@@ -31,8 +31,8 @@ public class PedidoService {
 	private ClienteRepository clienteRepositorio;
 	
 	
-	@Autowired
-	private EmailService emailService;
+//	@Autowired
+//	private EmailService emailService;
 	
 	
 	public List<Pedido> obterTodos(){
@@ -78,7 +78,7 @@ public class PedidoService {
 				"clarissa.vogel@gmail.com",
 				destinatarios);
 		
-		emailService.enviar(email);
+//		emailService.enviar(email);
 		pedido.setId(null);
 		return repositorio.save(pedido);
 	}

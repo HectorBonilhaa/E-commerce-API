@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Produto {
@@ -44,6 +44,7 @@ public class Produto {
 	private Categoria categoria;
 	
 	@OneToOne(mappedBy = "produto")
+	@JsonIgnore
 	private ItemPedido itemPedido;
 
 	public Byte getImagem() {
