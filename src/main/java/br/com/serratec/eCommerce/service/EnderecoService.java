@@ -36,6 +36,7 @@ public class EnderecoService {
 		validarModelo(endereco);
 		//Se não tem Id ele cadastra, se tem Id ele atualiza
 		endereco.setId(null);
+		endereco.setNumero(endereco.getNumero());
 		return repositorio.save(endereco);
 	}
 	
