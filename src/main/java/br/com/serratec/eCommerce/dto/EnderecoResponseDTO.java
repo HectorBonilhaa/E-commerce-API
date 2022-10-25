@@ -1,12 +1,5 @@
 package br.com.serratec.eCommerce.dto;
 
-import java.util.Date;
-import java.util.List;
-
-import br.com.serratec.eCommerce.model.Categoria;
-import br.com.serratec.eCommerce.model.Endereco;
-
-
 public class EnderecoResponseDTO {
 	
 	private String cep;

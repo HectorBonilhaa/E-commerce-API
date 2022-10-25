@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import br.com.serratec.eCommerce.exception.ResourceBadRequestException;
 import br.com.serratec.eCommerce.exception.ResourceNotFoundException;
 import br.com.serratec.eCommerce.model.Cliente;
-import br.com.serratec.eCommerce.model.MensagemEmail;
 import br.com.serratec.eCommerce.model.Pedido;
 import br.com.serratec.eCommerce.repository.ClienteRepository;
 import br.com.serratec.eCommerce.repository.PedidoRepository;
@@ -69,12 +68,12 @@ public class PedidoService {
 				+"<li>Data de envio:"+dataEnvio+"</li>"
 				+"<li>Data de entrega:"+dataEntrega+"</li>";
 		
-		MensagemEmail email = new MensagemEmail(
-				"Novo pedido criado.",
-				mensagem, 
-				"clarissa.vogel@gmail.com",
-				destinatarios);
-		
+//		MensagemEmail email = new MensagemEmail(
+//				"Novo pedido criado.",
+//				mensagem, 
+//				"hectoroliveira1@gmail.com",
+//				destinatarios);
+//		
 //		emailService.enviar(email);
 		pedido.setId(null);
 		return repositorio.save(pedido);
@@ -109,8 +108,5 @@ public class PedidoService {
 			throw new ResourceBadRequestException("A data do pedido não pode ser inferior a data atual");
 		}	
 	}
-	
-	
-	
 	
 	}

@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.serratec.eCommerce.model.ItemPedido;
-import br.com.serratec.eCommerce.model.Pedido;
-import br.com.serratec.eCommerce.model.Produto;
 import br.com.serratec.eCommerce.service.ItemPedidoService;
-import br.com.serratec.eCommerce.service.ProdutoService;
+
 
 
 @RestController

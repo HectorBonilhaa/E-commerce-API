@@ -32,14 +32,13 @@ public class EnderecoService {
 		return optEndereco;
 	}
 	
-//	public Endereco cadastrar(Endereco endereco) {
-//		validarModelo(endereco);
-//		//Se não tem Id ele cadastra, se tem Id ele atualiza
-//		endereco.setId(null);
-//		
-//		return repositorio.save(endereco);
-//	}
-//	
+	public Endereco cadastrar(Endereco endereco) {
+		validarModelo(endereco);
+		//Se não tem Id ele cadastra, se tem Id ele atualiza
+		endereco.setId(null);
+		return repositorio.save(endereco);
+	}
+	
 	public Endereco atualizar(Long id, Endereco endereco) {
 		
 		//Usando o método somente para validar se existe algo com o id informado

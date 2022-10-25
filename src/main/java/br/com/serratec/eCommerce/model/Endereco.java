@@ -22,90 +22,123 @@ public class Endereco {
 	private String cep;
 
 	@Column(nullable = false)
-	private String rua;
+	private String logradouro;
 
 	@Column(nullable = false)
 	private String bairro;
 
-	private String cidade;
+	private String localidade;
 
-	private String estado;
+	private String uf;
 
 //	@Column(nullable = false)
-//	private String numero;
+	private String numero;
 
-//	private String complemento;
-
-	public void viaCepEnderecoConverter(ViaCep viaCep) {
-
-		this.cep = viaCep.getCep();
-		this.rua = viaCep.getLogradouro();
-		this.bairro = viaCep.getBairro();
-		this.cidade = viaCep.getLocalidade();
-		this.estado = viaCep.getUf();
-	}
+	private String complemento;
 
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
 	@JsonBackReference
 	private Cliente cliente;
 
+
 	public Long getId() {
 		return id;
 	}
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+
 	public String getCep() {
 		return cep;
 	}
+
 
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
-	public String getRua() {
-		return rua;
+	public String getLogradouro() {
+		return logradouro;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
+
 
 	public String getBairro() {
 		return bairro;
 	}
 
+
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
 
-	public String getCidade() {
-		return cidade;
+	public String getLocalidade() {
+		return localidade;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setLocalidade(String localidade) {
+		this.localidade = localidade;
 	}
 
-	public String getEstado() {
-		return estado;
+	public String getNumero() {
+		return numero;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+
+	public String getNumero() {
+		return numero;
+	}
+
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
 
 	public Cliente getCliente() {
 		return cliente;
 	}
 
+
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
-	
-	
 }
