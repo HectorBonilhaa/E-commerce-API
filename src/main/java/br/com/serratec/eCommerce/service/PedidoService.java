@@ -12,12 +12,9 @@ import org.springframework.stereotype.Service;
 import br.com.serratec.eCommerce.exception.ResourceBadRequestException;
 import br.com.serratec.eCommerce.exception.ResourceNotFoundException;
 import br.com.serratec.eCommerce.model.Cliente;
-import br.com.serratec.eCommerce.model.ItemPedido;
 import br.com.serratec.eCommerce.model.MensagemEmail;
 import br.com.serratec.eCommerce.model.Pedido;
-import br.com.serratec.eCommerce.model.Produto;
 import br.com.serratec.eCommerce.repository.ClienteRepository;
-import br.com.serratec.eCommerce.repository.ItemPedidoRepository;
 import br.com.serratec.eCommerce.repository.PedidoRepository;
 import br.com.serratec.eCommerce.utils.ConversorDeData;
 

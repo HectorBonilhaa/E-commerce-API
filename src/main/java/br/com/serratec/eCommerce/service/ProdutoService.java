@@ -1,5 +1,9 @@
 package br.com.serratec.eCommerce.service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +11,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.serratec.eCommerce.dto.ProdutoRequestDTO;
 import br.com.serratec.eCommerce.dto.ProdutoResponseDTO;
@@ -24,7 +29,35 @@ public class ProdutoService {
 	
 	private ModelMapper mapper = new ModelMapper(); 
 	
+	// IMAGEM
+
+
 	
+	private String raiz = "E:\\Meus Documentos\\Documentos\\workspace\\E-commerce-API\\src\\main\\java\\br\\com\\serratec\\eCommerce";
+
+	//diretorio das fotos
+    private String diretorioFotos = "fotos";
+
+	public void salvarFoto(MultipartFile foto){
+        this.salvar(this.diretorioFotos, foto);
+    }
+
+	public void salvar(String diretorio,MultipartFile arquivo){ // diretorio especifico, // arquivo 
+
+		//diretorio
+		Path diretorioPath = Paths.get(this.raiz, diretorio); // raiz + diretorio especifico
+		
+		// diretorio + arquivo 
+		Path arquivoPath = diretorioPath.resolve(arquivo.getOriginalFilename());
+
+		try{
+			Files.createDirectories(diretorioPath); //cria diretorio
+			arquivo.transferTo(arquivoPath.toFile()); // transfere arquivo para o path do arquivo
+		}catch(IOException e){
+			throw new RuntimeException("Problemas ao tentar salvar arquivo");
+		}
+	}
+
 	//OBTER TODOS
 	
 	public List<ProdutoResponseDTO> obterTodos(){

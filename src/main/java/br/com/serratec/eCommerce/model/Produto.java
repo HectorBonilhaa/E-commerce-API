@@ -36,7 +36,7 @@ public class Produto {
 	@Column(nullable = false, name = "valor_unitario")
 	private Double valorUnitario;
 	
-	private Byte imagem;
+	//private Byte imagem;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
@@ -47,13 +47,6 @@ public class Produto {
 	@JsonIgnore
 	private ItemPedido itemPedido;
 
-	public Byte getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(Byte imagem) {
-		this.imagem = imagem;
-	}
 
 	public ItemPedido getItemPedido() {
 		return itemPedido;
