@@ -38,14 +38,18 @@ public class EnderecoController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Endereco> cadastrar(@RequestBody Endereco endereco) {
-		
-		// executa o metodo de buscar no via cep
-		Endereco enderecoCep = servico.consultaCep(endereco);
-		enderecoCep = servico.cadastrar(enderecoCep);
-		return new ResponseEntity<>(enderecoCep, HttpStatus.CREATED); // 201
+    public ResponseEntity<Endereco> cadastrar(@RequestBody Endereco endereco) {
 
-	}
+        // executa o metodo de buscar no via cep
+        //Consertando endereço
+        Endereco enderecoCep = servico.consultaCep(endereco);
+        enderecoCep.setNumero(endereco.getNumero());
+        enderecoCep.setCliente(endereco.getCliente());
+        enderecoCep.setComplemento(endereco.getComplemento());
+        enderecoCep = servico.cadastrar(enderecoCep);
+        return new ResponseEntity<>(enderecoCep, HttpStatus.CREATED); // 201
+
+    }
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Endereco> atualizar(@PathVariable Long id, @RequestBody Endereco endereco) {
