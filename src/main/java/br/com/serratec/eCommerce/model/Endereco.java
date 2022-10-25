@@ -112,26 +112,6 @@ public class Endereco {
 	}
 
 
-	public String getNumero() {
-		return numero;
-	}
-
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
-
 	public Cliente getCliente() {
 		return cliente;
 	}
