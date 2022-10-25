@@ -37,7 +37,7 @@ public class Endereco {
 	private String uf;
 
 	@ManyToOne
-	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+	@JoinColumn(name = "id_cliente")
 	@JsonBackReference
 	private Cliente cliente;
 
