@@ -29,29 +29,33 @@ public class Endereco {
 
 	private String localidade;
 
+	private String uf;
+
 //	@Column(nullable = false)
 	private String numero;
 
 	private String complemento;
-
-	private String uf;
 
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
 	@JsonBackReference
 	private Cliente cliente;
 
+
 	public Long getId() {
 		return id;
 	}
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+
 	public String getCep() {
 		return cep;
 	}
+
 
 	public void setCep(String cep) {
 		this.cep = cep;
@@ -65,9 +69,11 @@ public class Endereco {
 		this.logradouro = logradouro;
 	}
 
+
 	public String getBairro() {
 		return bairro;
 	}
+
 
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
@@ -105,9 +111,31 @@ public class Endereco {
 		this.uf = uf;
 	}
 
+
+	public String getNumero() {
+		return numero;
+	}
+
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+
 	public Cliente getCliente() {
 		return cliente;
 	}
+
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
