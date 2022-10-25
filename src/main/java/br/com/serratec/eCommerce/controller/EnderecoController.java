@@ -26,6 +26,9 @@ import br.com.serratec.eCommerce.repository.EnderecoRepository;
 @CrossOrigin(origins = "*")
 public class EnderecoController {
 
+    @Autowired
+    private EnderecoRepository repository;
+
     @GetMapping
     public ResponseEntity<List<Endereco>> getAll() {
        

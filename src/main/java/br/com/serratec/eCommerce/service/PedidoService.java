@@ -31,8 +31,8 @@ public class PedidoService {
 	private ClienteRepository clienteRepositorio;
 	
 	
-	@Autowired
-	private EmailService emailService;
+//	@Autowired
+//	private EmailService emailService;
 	
 	
 	public List<Pedido> obterTodos(){
@@ -54,7 +54,7 @@ public class PedidoService {
 
 		
 		var destinatarios = new ArrayList<String>();
-		destinatarios.add("hectoroliveira1@gmail.com");
+		destinatarios.add("clarissa.vogel@gmail.com");
 		
 		Optional <Cliente> cliente = clienteRepositorio.findById(pedido.getCliente().getId());
 		String dataPedido = ConversorDeData.converterDateParaData(pedido.getDataPedido());
@@ -75,10 +75,10 @@ public class PedidoService {
 		MensagemEmail email = new MensagemEmail(
 				"Novo pedido criado.",
 				mensagem, 
-				"hectoroliveira1@gmail.com",
+				"clarissa.vogel@gmail.com",
 				destinatarios);
 		
-		emailService.enviar(email);
+//		emailService.enviar(email);
 		pedido.setId(null);
 		return repositorio.save(pedido);
 	}
