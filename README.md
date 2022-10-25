@@ -1,4 +1,4 @@
-# PROJETO FINAL API REST RESIDENCIA SERRATEC 2022<br>
+# PROJETO FINAL API REST RESIDÊNCIA SERRATEC 2022<br>
 
 GRUPO 1: <p> Clarissa Vogel - Hector Oliveira - Mateus Tavares - Juan Marcos - Raquel Barbosa </p>
 
