@@ -33,7 +33,7 @@ public class ProdutoService {
 
 
 	
-	private String raiz = "E:\\Meus Documentos\\Documentos\\workspace\\E-commerce-API\\src\\main\\java\\br\\com\\serratec\\eCommerce";
+	private String raiz = "C:\\CURSO SERRATEC\\5-API RESTFUL\\workspace\\E-commerce-API\\src\\main\\java\\br\\com\\serratec\\eCommerce";
 
 	//diretorio das fotos
     private String diretorioFotos = "fotos";
