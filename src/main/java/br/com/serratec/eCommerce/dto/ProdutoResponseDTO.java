@@ -1,6 +1,5 @@
 package br.com.serratec.eCommerce.dto;
 
-import br.com.serratec.eCommerce.model.Categoria;
 
 public class ProdutoResponseDTO {
 	
