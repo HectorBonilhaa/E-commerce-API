@@ -54,7 +54,7 @@ public class PedidoService {
 
 		
 		var destinatarios = new ArrayList<String>();
-		destinatarios.add("hectoroliveira1@gmail.com");
+		destinatarios.add("clarissa.vogel@gmail.com");
 		
 		Optional <Cliente> cliente = clienteRepositorio.findById(pedido.getCliente().getId());
 		String dataPedido = ConversorDeData.converterDateParaData(pedido.getDataPedido());
@@ -112,8 +112,5 @@ public class PedidoService {
 			throw new ResourceBadRequestException("A data do pedido não pode ser inferior a data atual");
 		}	
 	}
-	
-	
-	
 	
 	}
