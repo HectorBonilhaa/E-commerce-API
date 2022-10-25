@@ -42,7 +42,6 @@ public class EnderecoController {
 		
 		// executa o metodo de buscar no via cep
 		Endereco enderecoCep = servico.consultaCep(endereco);
-		
 		enderecoCep = servico.cadastrar(enderecoCep);
 		return new ResponseEntity<>(enderecoCep, HttpStatus.CREATED); // 201
 
