@@ -41,10 +41,7 @@ public class EnderecoController {
 	public ResponseEntity<Endereco> cadastrar(@RequestBody Endereco endereco) {
 		
 		// executa o metodo de buscar no via cep
-		//Consertando endereço
 		Endereco enderecoCep = servico.consultaCep(endereco);
-		enderecoCep.setNumero(endereco.getNumero());
-		enderecoCep.setCliente(endereco.getCliente());
 		enderecoCep = servico.cadastrar(enderecoCep);
 		return new ResponseEntity<>(enderecoCep, HttpStatus.CREATED); // 201
 
